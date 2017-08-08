@@ -1,5 +1,3 @@
-// import * as arrowFunctionCurry from 'arrowFunctionCurry';
-// import * as rxjsUsage from 'rxjsUsage';
+import longestCommonPrefix from './leetcode/longestCommonPrefix';
 
-// console.log(arrowFunctionCurry);
-// console.log(rxjsUsage);
+// console.log(longestCommonPrefix(['what', 'where', 'which'])) // 'wh'
