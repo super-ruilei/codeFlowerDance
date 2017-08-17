@@ -1,4 +1,6 @@
 /*
+Easy
+Recursion
 The merge rule is:
 If two nodes overlap, then sum node values up as the new value of the merged node.
 Else, the NOT null node will be used as the node of new tree.
