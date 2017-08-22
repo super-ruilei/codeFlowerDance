@@ -25,3 +25,5 @@ var sumNestedArray2 = function(arr, i) {
   }
   return sumNestedArray2(arr, i - 1) + current;
 }
+
+export default sumNestedArray;

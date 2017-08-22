@@ -23,3 +23,5 @@ var findRelativeRanks = function (nums) {
   sorted.sort((a, b) => b - a);
   return nums.map(a => medalGroup[sorted.indexOf(a)] || sorted.indexOf(a) + 1 + '');
 };
+
+export default findRelativeRanks;

@@ -20,3 +20,5 @@ var firstUniqChar = function(s) {
   let item = s.split('').find(a => s.indexOf(a) === s.lastIndexOf(a));
   return s.indexOf(item);
 };
+
+export default firstUniqChar;

@@ -18,3 +18,5 @@ var numberComplement = function(num) {
   }
   return res;
 };
+
+export default numberComplement;

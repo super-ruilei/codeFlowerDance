@@ -24,3 +24,5 @@ var possibleBinary = function(n) {
     return a;
   }, []);
 }
+
+export default possibleBinary;

@@ -32,3 +32,5 @@ var mergeTrees = function (t1, t2) {
   node.right = mergeTrees(t1.right, t2.right);
   return node;
 };
+
+export default mergeTrees;
