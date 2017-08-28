@@ -12,6 +12,8 @@ import mergeTrees from './mergeTrees';
 import islandPerimeter from './islandPerimeter';
 import MyQueue from './stackToQueue';
 import MyStack from './queueToStack';
+import numberDisappeared from './numberDisappeared';
+import permutation from './permutation';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -79,7 +81,9 @@ describe("leetcode", function () {
   it("stack to queue", function () {
     let queue = new MyQueue();
     expect(queue.empty()).toEqual(true);
-    queue.push(1);queue.push(2);queue.push(3);
+    queue.push(1);
+    queue.push(2);
+    queue.push(3);
     expect(queue.empty()).toEqual(false);
     expect(queue.pop()).toEqual(1);
     expect(queue.peek()).toEqual(2);
@@ -90,7 +94,8 @@ describe("leetcode", function () {
   it("queue to stack", function () {
     let stack = new MyStack();
     expect(stack.empty()).toEqual(true);
-    stack.push(3);stack.push(2);
+    stack.push(3);
+    stack.push(2);
     expect(stack.empty()).toEqual(false);
     expect(stack.pop()).toEqual(2);
     expect(stack.top()).toEqual(3);
@@ -98,5 +103,21 @@ describe("leetcode", function () {
     expect(stack.top()).toEqual(1);
     expect(stack.pop()).toEqual(1);
     expect(stack.pop()).toEqual(3);
+  });
+
+  it("number disappeared", function () {
+    expect(numberDisappeared([4, 3, 2, 7, 8, 2, 3, 1])).toEqual([5, 6]);
+  });
+
+  it("permutation", function () {
+    const permutes = [
+      [1, 2, 3],
+      [1, 3, 2],
+      [2, 1, 3],
+      [2, 3, 1],
+      [3, 1, 2],
+      [3, 2, 1]
+    ];
+    expect(permutation([1, 2, 3])).toEqual(jasmine.arrayContaining(permutes));
   });
 });
