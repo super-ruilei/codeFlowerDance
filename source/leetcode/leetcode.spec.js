@@ -14,6 +14,7 @@ import MyQueue from './stackToQueue';
 import MyStack from './queueToStack';
 import numberDisappeared from './numberDisappeared';
 import permutation from './permutation';
+import diameterOfBinaryTree from './diameterTree'
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -119,5 +120,10 @@ describe("leetcode", function () {
       [3, 2, 1]
     ];
     expect(permutation([1, 2, 3])).toEqual(jasmine.arrayContaining(permutes));
+  });
+
+  it("diameter of tree", function () {
+    const tree = arrayToTree([1, 2, 3, 4, 5, 6, 7, 8]);
+    expect(diameterOfBinaryTree(tree)).toEqual(5);
   });
 });
