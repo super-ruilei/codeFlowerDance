@@ -14,7 +14,9 @@ import MyQueue from './stackToQueue';
 import MyStack from './queueToStack';
 import numberDisappeared from './numberDisappeared';
 import permutation from './permutation';
-import diameterOfBinaryTree from './diameterTree'
+import diameterOfBinaryTree from './diameterTree';
+import generateParenthesis from './parenthesis';
+import reverseWords from './reverseWords';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -126,4 +128,14 @@ describe("leetcode", function () {
     const tree = arrayToTree([1, 2, 3, 4, 5, 6, 7, 8]);
     expect(diameterOfBinaryTree(tree)).toEqual(5);
   });
+
+  it("generate all possible parenthesis", function () {
+    expect(generateParenthesis(1)).toEqual(["()"]);
+    expect(generateParenthesis(2)).toEqual(["(())", "()()"]);
+    expect(generateParenthesis(3)).toEqual(["((()))", "(()())", "(())()", "()(())", "()()()"]);
+  });
+
+  it("reverse only letter in word", function() {
+    expect(reverseWords("Let's take LeetCode contest")).toEqual("s'teL ekat edoCteeL tsetnoc");
+  })
 });
