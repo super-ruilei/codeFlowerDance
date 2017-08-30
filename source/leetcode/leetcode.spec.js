@@ -1,6 +1,8 @@
 import {
   arrayToTree,
-  treeToArray
+  treeToArray,
+  arrayToLink,
+  linkToArray
 } from './utils';
 import longestCommonPrefix from './longestCommonPrefix';
 import numberComplement from './numberComplement';
@@ -17,6 +19,10 @@ import permutation from './permutation';
 import diameterOfBinaryTree from './diameterTree';
 import generateParenthesis from './parenthesis';
 import reverseWords from './reverseWords';
+import convertBST from './convertBST';
+import isSubtree from './isSubtree';
+import isPalindrome from './isPalindromeLink';
+import getIntersectionNode from './linkIntersection';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -135,7 +141,40 @@ describe("leetcode", function () {
     expect(generateParenthesis(3)).toEqual(["((()))", "(()())", "(())()", "()(())", "()()()"]);
   });
 
-  it("reverse only letter in word", function() {
+  it("reverse only letter in word", function () {
     expect(reverseWords("Let's take LeetCode contest")).toEqual("s'teL ekat edoCteeL tsetnoc");
+  });
+
+  it("convert BST to great tree", function () {
+    const srcTree = arrayToTree([4, 2, 6, 1, 3, 5, 7]);
+    const tarTree = arrayToTree([22, 27, 13, 28, 25, 18, 7])
+    expect(treeToArray(convertBST(srcTree))).toEqual(treeToArray(tarTree));
+  })
+
+
+  it("is substree", function () {
+    const tree = arrayToTree([4, 2, 6, 1, 3, 5, 7, 8]);
+    const subtree = arrayToTree([6, 5, 7]);
+    const nonSubtree = arrayToTree([2, 1, 3]);
+    expect(isSubtree(tree, subtree)).toEqual(true);
+    expect(isSubtree(tree, nonSubtree)).toEqual(false);
+  })
+
+  it("is palindrome link", function () {
+    const link1 = arrayToLink([1, 2, 3, 2, 1]);
+    const link2 = arrayToLink([1, 2, 3, 3, 2, 1]);
+    const link3 = arrayToLink([1, 2, 3, 4, 2, 1]);
+    expect(isPalindrome(link1)).toEqual(true);
+    expect(isPalindrome(link2)).toEqual(true);
+    expect(isPalindrome(link3)).toEqual(false);
+  })
+
+  it("get link intersection", function () {
+    const link1 = arrayToLink([1, 2, 3]);
+    const link2 = arrayToLink([1, 2]);
+    const link3 = arrayToLink([4, 5]);
+    expect(linkToArray(link1.add(link3))).toEqual([1,2,3,4,5]);
+    expect(linkToArray(link1.add(link3))).toEqual([1,2,4,5]);
+    expect(getIntersectionNode(link1, link2)).toEqual(link3);
   })
 });
