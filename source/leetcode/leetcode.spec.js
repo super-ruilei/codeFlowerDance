@@ -173,8 +173,12 @@ describe("leetcode", function () {
     const link1 = arrayToLink([1, 2, 3]);
     const link2 = arrayToLink([1, 2]);
     const link3 = arrayToLink([4, 5]);
+    const link4 = arrayToLink([6, 7]);
     expect(linkToArray(link1.add(link3))).toEqual([1,2,3,4,5]);
-    expect(linkToArray(link1.add(link3))).toEqual([1,2,4,5]);
+    expect(linkToArray(link2.add(link3))).toEqual([1,2,4,5]);
     expect(getIntersectionNode(link1, link2)).toEqual(link3);
+    expect(getIntersectionNode(link1, link3)).toEqual(link3);
+    expect(getIntersectionNode(link2, link3)).toEqual(link3);
+    expect(getIntersectionNode(link1, link4)).toEqual(null);
   })
 });

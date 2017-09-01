@@ -12,18 +12,31 @@ in O(n) time and O(1) memory.
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-  let countA = 0,
-    countB = 0,
-    nodeA = headA,
-    nodeB = headB;
-  while (nodeA) {
-    countA++;
-    nodeA = nodeA.next;
+  let countA = getLinkLength(headA),
+    countB = getLinkLength(headB);
+  while (countA > countB) {
+    headA = headA.next;
+    countA--;
   }
-  while (nodeB) {
-    countB++;
-    nodeB = nodeB.next;
+  while (countB > countA) {
+    headB = headB.next;
+    countB--;
   }
+  while(headA && headB) {
+    if(headA === headB) return headA;
+    headA = headA.next;
+    headB = headB.next;
+  }
+  return null;
 };
+
+function getLinkLength(node) {
+  let count = 0;
+  while (node) {
+    count++;
+    node = node.next;
+  }
+  return count;
+}
 
 export default getIntersectionNode;
