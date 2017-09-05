@@ -1,4 +1,6 @@
 /*
+Easy
+Link
 Write a program to find the node at which the intersection of two singly linked lists begins.
 no intersection, return null.
 The linked lists must retain their original structure

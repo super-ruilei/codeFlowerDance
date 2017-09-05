@@ -23,6 +23,8 @@ import convertBST from './convertBST';
 import isSubtree from './isSubtree';
 import isPalindrome from './isPalindromeLink';
 import getIntersectionNode from './linkIntersection';
+import twoSum from './sumSortedArray';
+import mergeTwoLists from './mergeSortedList'
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -174,11 +176,21 @@ describe("leetcode", function () {
     const link2 = arrayToLink([1, 2]);
     const link3 = arrayToLink([4, 5]);
     const link4 = arrayToLink([6, 7]);
-    expect(linkToArray(link1.add(link3))).toEqual([1,2,3,4,5]);
-    expect(linkToArray(link2.add(link3))).toEqual([1,2,4,5]);
+    expect(linkToArray(link1.add(link3))).toEqual([1, 2, 3, 4, 5]);
+    expect(linkToArray(link2.add(link3))).toEqual([1, 2, 4, 5]);
     expect(getIntersectionNode(link1, link2)).toEqual(link3);
     expect(getIntersectionNode(link1, link3)).toEqual(link3);
     expect(getIntersectionNode(link2, link3)).toEqual(link3);
     expect(getIntersectionNode(link1, link4)).toEqual(null);
   })
+
+  it("sum target in sorted array", function () {
+    expect(twoSum([2, 7, 11, 15], 9)).toEqual([1, 2]);
+  });
+
+  it("merge tow sorted list", function () {
+    const link1 = arrayToLink([1, 3, 5]);
+    const link2 = arrayToLink([2, 4, 6]);
+    expect(linkToArray(mergeTwoLists(link1, link2))).toEqual([1, 2, 3, 4, 5, 6]);
+  });
 });

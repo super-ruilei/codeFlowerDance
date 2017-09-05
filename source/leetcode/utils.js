@@ -1,3 +1,6 @@
+/**
+ * Tree
+ */
 function TreeNode(val) {
   this.val = val;
   this.left = this.right = null;
@@ -29,6 +32,9 @@ export function treeToArray(rootNode) {
   return res.map(node => node.val);
 }
 
+/**
+ * LinkedList
+ */
 function ListNode(val) {
   this.val = val;
   this.next = null;
