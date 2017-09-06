@@ -24,7 +24,9 @@ import isSubtree from './isSubtree';
 import isPalindrome from './isPalindromeLink';
 import getIntersectionNode from './linkIntersection';
 import twoSum from './sumSortedArray';
-import mergeTwoLists from './mergeSortedList'
+import mergeTwoLists from './mergeSortedList';
+import lowestCommonAncestor from './commonAncestorNode';
+import isValidParentheses from './validParentheses';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -193,4 +195,21 @@ describe("leetcode", function () {
     const link2 = arrayToLink([2, 4, 6]);
     expect(linkToArray(mergeTwoLists(link1, link2))).toEqual([1, 2, 3, 4, 5, 6]);
   });
+
+  it("find common node", function () {
+    const bstTree = arrayToTree([6, 2, 8, 0, 4, 7, 9]);
+    expect(lowestCommonAncestor(bstTree, bstTree.left.left, bstTree.right.right)).toEqual(bstTree);
+    expect(lowestCommonAncestor(bstTree, bstTree.right.left, bstTree.right.right)).toEqual(bstTree.right);
+  })
+
+  it("find common node", function () {
+    const bstTree = arrayToTree([6, 2, 8, 0, 4, 7, 9]);
+    expect(lowestCommonAncestor(bstTree, bstTree.left.left, bstTree.right.right)).toEqual(bstTree);
+    expect(lowestCommonAncestor(bstTree, bstTree.right.left, bstTree.right.right)).toEqual(bstTree.right);
+  })
+
+  it("is valid parentheses", function() {
+    expect(isValidParentheses('()[]{}')).toEqual(true);
+    expect(isValidParentheses('([)]')).toEqual(false);
+  })
 });
