@@ -27,6 +27,8 @@ import twoSum from './sumSortedArray';
 import mergeTwoLists from './mergeSortedList';
 import lowestCommonAncestor from './commonAncestorNode';
 import isValidParentheses from './validParentheses';
+import countPrimes from './countPrimes';
+import MinStack from './minStack';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -208,8 +210,25 @@ describe("leetcode", function () {
     expect(lowestCommonAncestor(bstTree, bstTree.right.left, bstTree.right.right)).toEqual(bstTree.right);
   })
 
-  it("is valid parentheses", function() {
+  it("is valid parentheses", function () {
     expect(isValidParentheses('()[]{}')).toEqual(true);
     expect(isValidParentheses('([)]')).toEqual(false);
+  })
+
+  it("count primes", function () {
+    expect(countPrimes(3)).toEqual(1);
+    expect(countPrimes(4)).toEqual(2);
+    expect(countPrimes(15)).toEqual(6);
+  })
+
+  it("stack retrieve the minimum element in constant time", function () {
+    const minStack = new MinStack();
+    minStack.push(-2);
+    minStack.push(0);
+    minStack.push(-3);
+    expect(minStack.getMin()).toEqual(-3);
+    minStack.pop();
+    expcet(minStack.top()).toEqual(0);
+    expcet(minStack.getMin()).toEqual(-2);
   })
 });
