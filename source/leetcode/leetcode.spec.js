@@ -29,6 +29,8 @@ import lowestCommonAncestor from './commonAncestorNode';
 import isValidParentheses from './validParentheses';
 import countPrimes from './countPrimes';
 import MinStack from './minStack';
+import handleInput from './handleInput';
+import gaussian from './gaussian';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -221,14 +223,71 @@ describe("leetcode", function () {
     expect(countPrimes(15)).toEqual(6);
   })
 
-  it("stack retrieve the minimum element in constant time", function () {
-    const minStack = new MinStack();
-    minStack.push(-2);
-    minStack.push(0);
-    minStack.push(-3);
-    expect(minStack.getMin()).toEqual(-3);
-    minStack.pop();
-    expcet(minStack.top()).toEqual(0);
-    expcet(minStack.getMin()).toEqual(-2);
+  // it("stack retrieve the minimum element in constant time", function () {
+  //   const minStack = new MinStack();
+  //   minStack.push(-2);
+  //   minStack.push(0);
+  //   minStack.push(-3);
+  //   expect(minStack.getMin()).toEqual(-3);
+  //   minStack.pop();
+  //   expcet(minStack.top()).toEqual(0);
+  //   expcet(minStack.getMin()).toEqual(-2);
+  // })
+
+  /* 
+    c = newSize.height / size.height
+    x' = x
+    y' = y * c
+    regions.width' = size.width
+    regions.height' = size.height * c 
+  */
+  it("handle input", function () {
+    let input = {
+      originPoster: {
+        size: {
+          width: 900,
+          height: 500,
+        },
+        regions: [
+          { x: 32, y: 283, width: 531, height: 89 },
+          { x: 43, y: 255, width: 512, height: 32 },
+          { x: 43, y: 375, width: 519, height: 97 }
+        ]
+      },
+      newSize: {
+        width: 1900,
+        height: 1500,
+      }
+    };
+    let k = 1;
+    let output = {
+      size: {
+        width: 1900,
+        height: 1500,
+      },
+      regions: [
+        { x: 32, y: 849, width: 531, height: 267 },
+        { x: 43, y: 765, width: 512, height: 96 },
+        { x: 43, y: 1125, width: 519, height: 291 }
+      ]
+    }
+    expect(handleInput(input, k)).toEqual(output);
+  })
+
+  fit("count primes", function () {
+    let mean = 0,
+      variance = 1;
+    let distribution = gaussian(mean, variance);
+    let point1 = 0;
+    let point2 = 0.5;
+    // Take a random sample using inverse transform sampling method.
+    let samplePdf1 = distribution.pdf(point1);
+    let samplePdf2 = distribution.pdf(point2);
+    let sampleCdf1 = distribution.cdf(point1);
+    let sampleCdf2 = distribution.pdf(point2);
+    console.log(`pdf: ${point1} ${samplePdf1}`);
+    console.log(`pdf: ${point2} ${samplePdf2}`);
+    console.log(`cdf: ${point1} ${sampleCdf1}`);
+    console.log(`cdf: ${point2} ${sampleCdf2}`);
   })
 });
