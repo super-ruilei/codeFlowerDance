@@ -31,6 +31,7 @@ import countPrimes from './countPrimes';
 import MinStack from './minStack';
 import handleInput from './handleInput';
 import gaussian from './gaussian';
+import handleInput2 from './handleInput2';
 
 describe("leetcode", function () {
   it("longest common prefix", function () {
@@ -241,7 +242,59 @@ describe("leetcode", function () {
     regions.width' = size.width
     regions.height' = size.height * c 
   */
-  it("handle input", function () {
+  fit("handle input", function () {
+    let input2 = {
+      originPoster: {
+        "name": "古典乐器特卖会",
+        "size": {
+          "width": 750,
+          "height": 940
+        },
+        "regions": [
+          {
+            "x": 61.01681905198768,
+            "y": 143.9311619672131,
+            "width": 344.1666671865444,
+            "height": 171.75841541284404,
+            "orientation":'horizontal'
+          },
+          {
+            "x": 63.891444525993876,
+            "y": 322.6758266055046,
+            "width": 345.6039683180428,
+            "height": 150.1987911314984,
+            "orientation":'horizontal'
+          },
+          {
+            "x": 458.43920886850145,
+            "y": 222.83082529051993,
+            "width": 231.33145,
+            "height": 84.753265,
+            "orientation":'horizontal'
+          },
+          {
+            "x": 438.4141677370029,
+            "y": 325.1911386850153,
+            "width": 251.356474464832,
+            "height": 70.06880015290534,
+            "orientation":'horizontal'
+
+          },
+          {
+            "x": 74.74005886850154,
+            "y": 48.86844000000001,
+            "width": 603.5321,
+            "height": 54.617798,
+            "orientation":'horizontal'
+          }
+        ]
+      },
+      newSize: {
+        "width": 350,
+        "height": 940
+      }
+      
+    };
     let input = {
       originPoster: {
         size: {
@@ -249,9 +302,9 @@ describe("leetcode", function () {
           height: 500,
         },
         regions: [
-          { x: 32, y: 283, width: 531, height: 89 },
-          { x: 43, y: 255, width: 512, height: 32 },
-          { x: 43, y: 375, width: 519, height: 97 }
+          { x: 32, y: 283, width: 531, height: 89, orientation: 'horizontal' },
+          { x: 43, y: 255, width: 512, height: 32, orientation: 'horizontal' },
+          { x: 43, y: 375, width: 519, height: 97, orientation: 'horizontal' }
         ]
       },
       newSize: {
@@ -259,7 +312,8 @@ describe("leetcode", function () {
         height: 1500,
       }
     };
-    let k = 1;
+    let k = 0.2;
+    let adjustW = 0.9
     let output = {
       size: {
         width: 1900,
@@ -271,10 +325,13 @@ describe("leetcode", function () {
         { x: 43, y: 1125, width: 519, height: 291 }
       ]
     }
-    expect(handleInput(input, k)).toEqual(output);
+
+    let result = handleInput2(input2, k,adjustW);
+    console.log('resutl', JSON.stringify(result,null,2))
+    expect(result).toEqual(output);
   })
 
-  fit("count primes", function () {
+  it("count primes", function () {
     let mean = 0,
       variance = 1;
     let distribution = gaussian(mean, variance);
